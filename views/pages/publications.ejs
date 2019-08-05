@@ -1,0 +1,188 @@
+<% include header%>
+<script>
+let a;
+let b;
+</script>
+<%
+let post1;
+for (i=0; i< info.length; i++){ 
+    if (i == info.length -1 ){
+        post1=info[i]
+    }
+ } 
+ %>
+
+<br/><br/><br/><br/>
+<div class="title col-12">
+    <h2 class="align-left mbr-fonts-style m-0 display-1">
+        Publications
+    </h2>
+</div>
+<%if (locals.doc) {%>
+    <section class="mbr-section article content1 cid-rkAO52Wwc7" id="content1-1d">
+        <div class="container">
+            <div class="media-container-row">
+                <div class="mbr-text col-12 mbr-fonts-style display-7 col-md-8"><p>
+                    <% if (doc.media =="false") {%>
+                        <h1 class="mbr-title pt-2 mbr-fonts-style display-2">
+                            <%= doc.titre %>
+                        </h1>
+                        <pre class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7">
+                            <%=doc.message %>
+                        </pre>
+                        <br/>
+                        <button type="button" class="btn btn-success">J'aime
+                            <div>
+                                <img src="/media/images/like.png" width="38" height="40">
+                            </div>
+                        </button>
+
+                    <%}else{ %>
+                        <h1>
+                            <%= doc.titre %>
+                        </h1>
+                        <% if (doc.mediatype =="image/jpeg" || doc.mediatype =="image/png" ){%>
+                            <div class="mbr-figure">
+                                <img src="<%= doc.media %>"  alt="image Matitech">
+                            </div>
+                        <%}else{%>
+                            <video class="video-block" style="width: 80%" src="<%= doc.media %>" controls  alt="image Matitech">
+                        <%}%>
+                        <br/> 
+                        <pre class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7">
+                            <%= doc.message %>
+                        </pre>
+                            <br/>
+                            <button type="button" class="btn btn-success">J'aime
+                                <div>
+                                    <img src="/media/images/like.png" width="38" height="40">
+                                </div>
+                            </button>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<%}else {%>
+    <section class="mbr-section article content1 cid-rkAO52Wwc7" id="content1-1d">
+        <div class="container">
+            <div class="media-container-row">
+                <div class="mbr-text col-12 mbr-fonts-style display-7 col-md-8"><p>
+                    <% if (post1.media =="false") {%>
+                        <h1 class="mbr-title pt-2 mbr-fonts-style display-2">
+                            <%= post1.titre %>
+                        </h1>
+                            <pre  class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7" >
+                                <%= post1.message %>
+                            </pre>
+                        <br/>
+                        <button type="button" class="btn btn-success">J'aime
+                            <div>
+                                <img src="/media/images/like.png" width="38" height="40">
+                            </div>
+                        </button>
+                    <%}else{ %>
+                        <h1>
+                            <%= post1.titre %>
+                        </h1>
+                        <% if (post1.mediatype =="image/jpeg" || post1.mediatype =="image/png" ){%>
+                            <div class="mbr-figure">
+                                <img src="<%= post1.media %>"  alt="image Matitech">
+                            </div>
+                        <%}else{%>
+                            <video class="video-block" style="width: 80%" src="<%= post1.media %>" controls  alt="image Matitech">
+                        <%}%>
+                        <br/>
+                        <div class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7">
+                            <pre>
+                                <%= post1.message %>
+                            </pre>
+                            <br/>
+                            <button type="button" class="btn btn-success">J'aime
+                                <div>
+                                    <img src="/media/images/like.png" width="38" height="40">
+                                </div>
+                            </button>
+                        </div>
+                    <% } %>
+                </div>
+                <br/>
+            </div>
+        </div>
+    </section>
+<%}%>
+
+<section class="mbr-section article content10 cid-rksohz9oJ7" id="content10-12">
+    <div class="container">
+        <div class="inner-container" style="width: 66%;">
+            <hr class="line" style="width: 30%;">
+            <br/>
+            <hr class="line" style="width: 40%;">
+            <br/>
+            <div class="title col-12">
+                    <h2 class="align-left mbr-fonts-style mbr-white m-0 display-1">
+                        Liste des Publications
+                    </h2>
+                </div>
+                <br/>
+            <hr class="line" style="width: 40%;">
+            <br/>
+            <hr class="line" style="width: 30%;">
+        </div>
+    </div>
+</section>
+
+
+<section class="services6 cid-rkqKyCIsFn" id="services6-h">
+    <div class="container">
+            <br/>
+        <div class="row">
+            <%for (i=0; i< info.length; i++){ %>
+            <div class="card col-12 pb-5">
+                <div class="card-wrapper media-container-row media-container-row">
+                    <div class="card-box">
+                        <div class="row">
+                            <% if (info[i].media !=="false") {%>
+                                <div class="col-12 col-md-2">
+                                    <% if (info[i].mediatype =="image/jpeg" || info[i].mediatype =="image/png" ){%>
+                                        <div class="mbr-figure">
+                                            <img src="<%= info[i].media %>"  alt="image Matitech">
+                                    </div>
+                                    <%}else{%>
+                                        <video class="video-block" style="width: 80%" src="<%= info[i].media %>" controls  alt="image Matitech">
+                                    <%}%>
+                                </div>
+                            <% } %>
+                            <div class="col-12 col-md-10">
+                                
+                                <div class="wrapper">
+                                    <div class="top-line pb-3">
+                                        <h4 class="card-title mbr-fonts-style display-5">
+                                            <%= info[i].titre %>
+                                        </h4>
+                                    </div>
+                                    <div class="bottom-line">
+                                        <p class="mbr-text mbr-fonts-style display-7">
+                                            <script>
+                                                a = "<%= info[i].message %>";
+                                                document.write(a.substr(0,40)+"...");
+                                            </script>
+                                        </p>
+                                        <form  action="publications" method="post" >
+                                            <input id="idpost" name="idpost" type="hidden" value="<%= info[i].id %>">
+                                            <input type="submit" class="btn btn-success" value=" En savoir plus"/>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <% }%>
+        </div>
+    </div>
+</section>
+<% include footer%>
